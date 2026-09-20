@@ -1,11 +1,14 @@
 import { RunReport } from "./types"
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://127.0.0.1:8000"
+const API_BASE = "https://retying-sugar-marbling.ngrok-free.dev"
 
 export async function createRun(query: string): Promise<{ run_id: string; status: string }> {
   const response = await fetch(`${API_BASE}/api/runs`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": "69420"
+    },
     body: JSON.stringify({ query })
   })
   if (!response.ok) {
