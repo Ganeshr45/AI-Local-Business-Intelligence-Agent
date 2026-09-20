@@ -3,12 +3,11 @@ import { RunReport } from "./types"
 const API_BASE = "https://retying-sugar-marbling.ngrok-free.dev"
 
 export async function createRun(query: string): Promise<{ run_id: string; status: string }> {
-  const response = await fetch(`${API_BASE}/api/runs`, {
+  const response = await fetch(`${API_BASE}/api/runs?ngrok-skip-browser-warning=true`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      "ngrok-skip-browser-warning": "69420"
-    },
+      "Content-Type": "application/json"
+   },
     body: JSON.stringify({ query })
   })
   if (!response.ok) {
@@ -18,11 +17,8 @@ export async function createRun(query: string): Promise<{ run_id: string; status
 }
 
 export async function getRunReport(runId: string): Promise<RunReport> {
-  const response = await fetch(`${API_BASE}/api/runs/${runId}`, {
-    headers: {
-      "ngrok-skip-browser-warning": "69420"
-    }
-  })
+  const response = await fetch(`${API_BASE}/api/runs/${runId}?ngrok-skip-browser-warning=true`
+   
   if (!response.ok) {
     throw new Error("Failed to fetch run report")
   }
@@ -30,10 +26,10 @@ export async function getRunReport(runId: string): Promise<RunReport> {
 }
 
 export async function askMarket(runId: string, question: string): Promise<{ answer: string; citations: string[] }> {
-  const response = await fetch(`${API_BASE}/api/runs/${runId}/ask`, {
+  const response = await fetch(`${API_BASE}/api/runs/${runId}/ask?ngrok-skip-browser-warning=true', {
     method: "POST",
-    headers: { "Content-Type": "application/json",
-             "ngrok-skip-browser-warning":"69420"
+    headers: {
+    "Content-Type": "application/json"
     },
     body: JSON.stringify({ question })
   })
