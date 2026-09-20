@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.label-fact {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.label-observation {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.label-insight {
+  background-color: #ede9fe;
+  color: #6d28d9;
+}
+
+.label-recommendation {
+  background-color: #dcfce7;
+  color: #15803d;
+}
