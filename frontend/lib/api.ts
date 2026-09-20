@@ -15,7 +15,11 @@ export async function createRun(query: string): Promise<{ run_id: string; status
 }
 
 export async function getRunReport(runId: string): Promise<RunReport> {
-  const response = await fetch(`${API_BASE}/api/runs/${runId}`)
+  const response = await fetch(`${API_BASE}/api/runs/${runId}`, {
+    headers: {
+      "ngrok-skip-browser-warning": "69420"
+    }
+  })
   if (!response.ok) {
     throw new Error("Failed to fetch run report")
   }
@@ -25,7 +29,9 @@ export async function getRunReport(runId: string): Promise<RunReport> {
 export async function askMarket(runId: string, question: string): Promise<{ answer: string; citations: string[] }> {
   const response = await fetch(`${API_BASE}/api/runs/${runId}/ask`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json",
+             "ngrok-skip-browser-warning":"69420"
+    },
     body: JSON.stringify({ question })
   })
   if (!response.ok) {
