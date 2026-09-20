@@ -17,7 +17,7 @@ export async function createRun(query: string): Promise<{ run_id: string; status
 }
 
 export async function getRunReport(runId: string): Promise<RunReport> {
-  const response = await fetch(`${API_BASE}/api/runs/${runId}?ngrok-skip-browser-warning=true`
+  const response = await fetch(`${API_BASE}/api/runs/${runId}?ngrok-skip-browser-warning=true`)
    
   if (!response.ok) {
     throw new Error("Failed to fetch run report")
