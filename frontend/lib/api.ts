@@ -40,5 +40,5 @@ export async function askMarket(runId: string, question: string): Promise<{ answ
 }
 
 export function streamUrl(runId: string): string {
-  return `${API_BASE}/api/runs/${runId}/stream`
+  return '${API_BASE}/api/runs/${runId}/stream?ngrok-skip-browser-warning=true`
 }
